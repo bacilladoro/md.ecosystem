@@ -1,0 +1,27 @@
+[submodule "packs/mp.essentials"]
+	path = packs/mp.essentials
+	url = https://github.com/microdee/mp.essentials.git
+[submodule "packs/mp.dx"]
+	path = packs/mp.dx
+	url = https://github.com/microdee/mp.dx.git
+[submodule "packs/mp.fxh"]
+	path = packs/mp.fxh
+	url = https://github.com/microdee/mp.fxh.git
+[submodule "packs/mp.voocam"]
+	path = packs/mp.voocam
+	url = https://github.com/microdee/mp.voocam.git
+[submodule "packs/VObjects"]
+	path = packs/VObjects
+	url = https://github.com/microdee/VObjects.git
+[submodule "packs/Emeshe"]
+	path = packs/Emeshe
+	url = https://github.com/microdee/Emeshe.git
+[submodule "packs/leappack"]
+	path = packs/leappack
+	url = https://github.com/microdee/leappack.git
+[submodule "packs/mp.vaudio"]
+	path = packs/mp.vaudio
+	url = https://github.com/microdee/mp.vaudio.git
+[submodule "packs/mp.mcps"]
+	path = packs/mp.mcps
+	url = https://github.com/microdee/mp.mcps.git
