@@ -1,0 +1,12 @@
+<!ELEMENT vpack (meta,install)>
+<!-- vpack -->
+<!ELEMENT meta (name,source,(author|dependencies|aliases)*)>
+<!ELEMENT install (#CDATA)>
+<!-- meta -->
+<!ELEMENT name (#CDATA)>
+<!ELEMENT source (#CDATA)>
+<!ELEMENT author (#CDATA)>
+<!ELEMENT aliases (#CDATA)>
+<!ELEMENT dependencies (dependency+)>
+<!-- dependencies -->
+<!ELEMENT dependency (name,source,(aliases?))>
