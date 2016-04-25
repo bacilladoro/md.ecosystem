@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Schema;
 using LibGit2Sharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using PowerArgs;
 
 namespace vpm
@@ -20,6 +16,13 @@ namespace vpm
 
     public static class VpmUtils
     {
+        public static void ConsoleClearLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
+        }
         public static MachineType GetMachineType(string fileName)
         {
             const int PE_POINTER_OFFSET = 60;
@@ -39,7 +42,44 @@ namespace vpm
         {
             var tempdir = VpmConfig.Instance.VpmTempDir;
             Console.WriteLine("Removing vpm temp folder.");
-            Directory.Delete(tempdir, true);
+            File.SetAttributes(tempdir, FileAttributes.Normal);
+            DeleteDirectory(tempdir, true);
+        }
+
+        public static void DeleteDirectory(string path, bool recursive)
+        {
+            // Delete all files and sub-folders?
+            if (recursive)
+            {
+                // Yep... Let's do this
+                var subfolders = Directory.GetDirectories(path);
+                foreach (var s in subfolders)
+                {
+                    DeleteDirectory(s, recursive);
+                }
+            }
+
+            // Get all files of the folder
+            var files = Directory.GetFiles(path);
+            foreach (var f in files)
+            {
+                // Get the attributes of the file
+                var attr = File.GetAttributes(f);
+
+                // Is this file marked as 'read-only'?
+                if ((attr & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                {
+                    // Yes... Remove the 'read-only' attribute, then
+                    File.SetAttributes(f, attr ^ FileAttributes.ReadOnly);
+                }
+
+                // Delete the file
+                File.Delete(f);
+            }
+
+            // When we get here, all the files of the folder were
+            // already deleted, so we just delete the empty folder
+            Directory.Delete(path);
         }
 
         public static bool PromptYayOrNay(string question, string note = "")
@@ -238,6 +278,7 @@ namespace vpm
                 },
                 RepositoryOperationCompleted = context =>
                 {
+                    Console.WriteLine("");
                     Console.WriteLine("Done: " + context.RepositoryPath);
                     if (!string.IsNullOrEmpty(context.SubmoduleName))
                     {
@@ -246,11 +287,13 @@ namespace vpm
                 },
                 OnCheckoutProgress = (path, steps, totalSteps) =>
                 {
-                    Console.Write("\rChecking out: {0} / {1}", steps, totalSteps);
+                    ConsoleClearLine();
+                    Console.Write("Checking out: {0} / {1}", steps, totalSteps);
                 },
                 OnTransferProgress = progress =>
                 {
-                    Console.Write("\rRecieving: {0} / {1} ({2} kb)",
+                    ConsoleClearLine();
+                    Console.Write("Recieving: {0} / {1} ({2} kb)",
                         progress.IndexedObjects,
                         progress.TotalObjects,
                         progress.ReceivedBytes/1024);

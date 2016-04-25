@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml;
-using LibGit2Sharp;
-using LibGit2Sharp.Handlers;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using PowerArgs;
@@ -124,7 +120,7 @@ namespace vpm
                                     "WARNING: Original pack will be deleted!\nWARNING: If anything goes wrong during installation original pack won't be recovered.");
                             if (!replaceit) continue;
                             var aliasdir = Path.GetDirectoryName(Args.GetAmbientArgs<VpmArgs>().VVVVExe) + "\\packs\\" + matchedname;
-                            Directory.Delete(aliasdir, true);
+                            VpmUtils.DeleteDirectory(aliasdir, true);
                         }
                         var newvpack = new VPack(dname, dsrc, aliaslist);
                         Dependencies.Add(newvpack);

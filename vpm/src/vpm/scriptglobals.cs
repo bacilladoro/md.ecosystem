@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Xml;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp.Scripting;
-using Microsoft.Win32;
 using PowerArgs;
 using SharpCompress.Archive;
 using SharpCompress.Common;
@@ -91,7 +86,7 @@ namespace vpm
                     }
                     else
                     {
-                        throw new Exception("Build instruction cannot without proper Visual Studio version.");
+                        throw new Exception("Cannot build without proper Visual Studio version.");
                     }
                 }
                 return devenv;
@@ -130,12 +125,17 @@ namespace vpm
             Console.WriteLine("Copy folder:");
             Console.WriteLine("From: " + srcdir);
             Console.WriteLine("To: " + dstdir);
+            Console.WriteLine("");
             VpmUtils.CopyDirectory(srcdir, dstdir, ignore, match, o =>
             {
                 if (o is FileInfo)
-                    Console.WriteLine("File: " + ((FileInfo)o).FullName + "\r");
-                if(o is DirectoryInfo)
-                    Console.WriteLine("Dir: " + ((DirectoryInfo)o).FullName);
+                {
+                    Console.WriteLine("File: " + ((FileInfo) o).Name);
+                }
+                if (o is DirectoryInfo)
+                {
+                    Console.WriteLine("Dir: " + ((DirectoryInfo) o).FullName);
+                }
             });
         }
 
@@ -166,10 +166,12 @@ namespace vpm
         {
             Console.WriteLine("Downloading " + src);
             Console.WriteLine("To " + dst);
+            Console.WriteLine("");
             var client = new WebClient();
             client.DownloadProgressChanged += (sender, args) =>
             {
-                Console.WriteLine("Progress: {0} / {1}, {2}%\r", args.BytesReceived, args.TotalBytesToReceive, args.ProgressPercentage);
+                VpmUtils.ConsoleClearLine();
+                Console.WriteLine("Progress: {0} / {1}, {2}%", args.BytesReceived, args.TotalBytesToReceive, args.ProgressPercentage);
             };
             client.DownloadFileTaskAsync(src, dst).RunSynchronously();
             Console.WriteLine("Done");
@@ -180,9 +182,11 @@ namespace vpm
             var archive = ArchiveFactory.Open(src);
             Console.WriteLine("Extracting " + src);
             Console.WriteLine("To " + dstdir);
+            Console.WriteLine("");
             foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
             {
-                Console.WriteLine("{0}\r", entry.Key);
+                VpmUtils.ConsoleClearLine();
+                Console.WriteLine(entry.Key);
                 entry.WriteToDirectory(dstdir, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
             }
             Console.WriteLine("Done");
