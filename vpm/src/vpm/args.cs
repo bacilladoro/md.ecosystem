@@ -18,6 +18,7 @@ namespace vpm
         {
             if (arg != null)
             {
+                arg = arg.Trim('"');
                 if (File.Exists(arg))
                 {
                     if (!arg.EndsWith("vvvv.exe", true, null))
@@ -51,6 +52,7 @@ namespace vpm
     {
         public override void Validate(string name, ref string arg)
         {
+            arg = arg.Trim('"');
             if (File.Exists(arg))
             {
                 if (!arg.EndsWith(".vpack", true, null))

@@ -37,7 +37,9 @@ namespace vpm
 
         public static void CleanUp()
         {
-            Directory.Delete(VpmConfig.Instance.VpmTempDir, true);
+            var tempdir = VpmConfig.Instance.VpmTempDir;
+            Console.WriteLine("Removing vpm temp folder.");
+            Directory.Delete(tempdir, true);
         }
 
         public static bool PromptYayOrNay(string question, string note = "")
@@ -89,6 +91,23 @@ namespace vpm
             return false;
         }
 
+        public static bool IsPackAlreadyInTemp(string name)
+        {
+            var packsdir = VpmConfig.Instance.VpmTempDir;
+            foreach (var d in Directory.GetDirectories(packsdir))
+            {
+                var cname = Path.GetFullPath(d)
+                    .TrimEnd(Path.DirectorySeparatorChar)
+                    .Split(Path.DirectorySeparatorChar)
+                    .Last();
+                if (string.Equals(cname, name, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static bool IsPackExisting(string name, IEnumerable<string> aliases, out string matched)
         {
             if (IsAliasExisting(name))
@@ -96,10 +115,13 @@ namespace vpm
                 matched = name;
                 return true;
             }
-            foreach (var a in aliases.Where(IsAliasExisting))
+            if (aliases != null)
             {
-                matched = a;
-                return true;
+                foreach (var a in aliases.Where(IsAliasExisting))
+                {
+                    matched = a;
+                    return true;
+                }
             }
             matched = "";
             return false;
@@ -107,10 +129,11 @@ namespace vpm
 
         public static XmlDocument ParseAndValidateXmlFile(string xmlfile)
         {
-
+            /*
             var xmlsettings = new XmlReaderSettings
             {
                 Async = false,
+                DtdProcessing = DtdProcessing.Parse,
                 ValidationType = ValidationType.DTD
             };
             xmlsettings.ValidationEventHandler += (sender, args) =>
@@ -118,7 +141,8 @@ namespace vpm
                 throw new Exception(".vpack validation error: " + args.Message);
             };
             var reader = XmlReader.Create(Args.GetAmbientArgs<VpmArgs>().VPackFile, xmlsettings);
-            while (reader.Read()) ;
+            while (reader.Read());
+            */
 
             var doc = new XmlDocument();
             doc.LoadXml(File.ReadAllText(xmlfile));

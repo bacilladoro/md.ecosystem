@@ -70,8 +70,10 @@ namespace vpm
             {
                 Console.WriteLine("Something went wrong:");
                 Console.WriteLine(e.Message);
-                Console.WriteLine("Sorry :(");
+                Console.WriteLine(e.StackTrace);
                 VpmUtils.CleanUp();
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey(true);
                 Environment.Exit(0);
             }
         }

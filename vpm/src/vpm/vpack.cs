@@ -45,7 +45,7 @@ namespace vpm
             if (CloneFromGit(true))
             {
                 var vpackfiles = Directory.GetFiles(TempDir, "*.vpack");
-                if (vpackfiles.Length > 0)
+                if ((vpackfiles.Length > 0) && (xmldoc == null))
                 {
                     xmldoc = VpmUtils.ParseAndValidateXmlFile(vpackfiles[0]);
                 }
@@ -95,6 +95,11 @@ namespace vpm
                             throw new Exception("Insufficient data to parse dependency.");
 
                         var dname = dnamenode.InnerText.Trim();
+                        if (VpmUtils.IsPackAlreadyInTemp(dname))
+                        {
+                            Console.WriteLine(dname + " is already in vpm temp folder. Ignoring");
+                            continue;
+                        }
                         Console.WriteLine("Parsing " + dname);
                         var dsrc = dsrcnode.InnerText.Trim();
 
@@ -152,11 +157,17 @@ namespace vpm
                 {
                     Console.WriteLine("Fetching install script for " + Name);
                     var client = new WebClient();
-                    var stream = client.OpenRead(Source);
-                    if(stream == null)
-                        throw new Exception("Something went wrong while fetching the installation script for " + Name);
-                    var reader = new StreamReader(stream);
-                    InstallScript = reader.ReadToEnd();
+                    try
+                    {
+                        var stream = client.OpenRead(Source);
+                        var reader = new StreamReader(stream);
+                        InstallScript = reader.ReadToEnd();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Problem with URL " + Source);
+                        throw;
+                    }
                     Console.WriteLine("Done");
                 }
                 else
