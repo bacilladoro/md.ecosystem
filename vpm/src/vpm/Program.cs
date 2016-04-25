@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
-using System.Xml;
-using System.Xml.Schema;
+using System.Threading;
 using PowerArgs;
 
 namespace vpm
@@ -63,8 +58,10 @@ namespace vpm
                 var vpack = new VPack(name, src, aliaslist, vpxml);
                 Console.WriteLine("Initialization complete.");
                 vpack.Install();
+                VpmUtils.CleanUp();
                 Console.WriteLine("All good in theory.");
                 Console.WriteLine("Enjoy!");
+                Thread.Sleep(5000);
             }
             catch (Exception e)
             {
