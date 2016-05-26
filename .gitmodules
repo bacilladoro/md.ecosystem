@@ -25,3 +25,6 @@
 [submodule "packs/mp.mcps"]
 	path = packs/mp.mcps
 	url = https://github.com/microdee/mp.mcps.git
+[submodule "vpm"]
+	path = vpm
+	url = https://github.com/microdee/vpm.git
