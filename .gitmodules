@@ -28,6 +28,9 @@
 [submodule "packs/IPCSessions"]
 	path = packs/IPCSessions
 	url = https://github.com/microdee/IPCSessions.git
+[submodule "packs/LibTessss"]
+	path = packs/LibTessss
+	url = https://github.com/microdee/LibTessss.git
 [submodule "vpm"]
 	path = vpm
 	url = https://github.com/microdee/vpm.git
