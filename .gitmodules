@@ -37,3 +37,6 @@
 [submodule "vpm"]
 	path = vpm
 	url = https://github.com/microdee/vpm.git
+[submodule "packs/nexusinv"]
+	path = packs/nexusinv
+	url = https://github.com/microdee/nexusinv.git
