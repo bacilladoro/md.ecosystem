@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D1CCBDC3-5344-4967-983B-1B9DD66674F4}</ProjectGuid>
+    <RootNamespace>Shaders</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(ProjectDir)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <FxCompile Include="packs\mp.dx\nodes\dx11\BoundingBox.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\ConstantAdvanced.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\ConstantColor.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\CSTemplate.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\DrawGrid.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\GeomJoinThru.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\GrowthDX11.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\IBLSimple.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\MitterFill.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\MitterFillFromRawBuffer.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\MitterLineOutput.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\MitterStartEnd.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\MitterStartEndRawBuffer.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\MultiBoundingBox.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\PBRBase.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\PBRBaseAdvanced.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\ReadMatrices.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\RecordMatrices.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\ReprojectForward.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\SetSlice.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\SuppressDiagonals.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\VelMapExtender.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\VisualizeColorSpace.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\WaveForm.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\WriteMatTex.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packs\mp.dx\nodes\dx11\mups.fxh" />
+    <None Include="packs\mp.dx\nodes\geom11\FromSTL.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\GenerateGeomVel.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\GeometryFromBinary.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\GeometryFromTexture.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\GeometryFromValues.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\Grid.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\JoinFace.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\JoinSegment.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\JoinSegmentTex.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\LineMitter.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\MergedToEmesheGeomID.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\Skinning.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\SkinningMDMA.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\SuppressDiagonals.gsfx" />
+    <None Include="packs\mp.dx\nodes\geom11\Thru.gsfx" />
+    <None Include="packs\mp.dx\nodes\texture11\BlendControl.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\BlurFlow.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\BlurGlowMRE.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\BlurHoles.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\BlurMask.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\BlurMax.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\BufferToTexture.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\CameraMotionBlur.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ClosestUV.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ColorChannelRemapFormat.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ColorSpace.fxh" />
+    <None Include="packs\mp.dx\nodes\texture11\CubeToPano.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\DebugMDMA.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\DebugTangentSpace.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\DepthBlurNorm.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\DisplaceHeight.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\FillVel.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\FillVelocity.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\FilterNoise.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\GenerateMips.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\GradientPow.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\IBLDeferred.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\IBLDeferredSimple.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\LavaTransform.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\LinearDepthToWorld.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\Lookup.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\Morph.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\MotionBlurSA.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\PerlinPos.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\Pillow.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\Plasma.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\PlasmaTrig.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\PreviewSlice.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\QRCode.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\Reproject.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\AdaptiveSharpen.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\AmbientLight.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Bloom.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\CA.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Cartoon.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Clarity.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\ColorMatrix.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Colourfulness.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\CRT.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Curves.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Daltonize.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Deband.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Denoise.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\DOF.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\DPX.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\FilmGrain.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\FilmicPass.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\FineSharp.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\FXAA.fxh" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\FXAA.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\HighPassSharpen.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\HQ4X.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\LightDoF.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\LumaSharpen.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\MXAO.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\RBM.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\ReShade.fxh" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\SMAA.fxh" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\SMAA.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Technicolor.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Technicolor2.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ReShade\Vibrance.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\RGBA.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ScalarOperation.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ScalarOperationBundle.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ShiftRGBFix.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\SimpleOperation.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\SSLAONaked.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\SSLAONakedNorm.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\StencilView.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\TemporalFilter.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\TestWorldHoles.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ToneMapping.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\ToneMappingVisualizer.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\TransformValues.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\UnPreMultiply.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\VelocityMod.tfx" />
+    <None Include="packs\mp.dx\nodes\texture11\Voronoise.tfx" />
+    <None Include="packs\mp.fxh\AnisotropicEnvSample.fxh" />
+    <None Include="packs\mp.fxh\barycentric.fxh" />
+    <None Include="packs\mp.fxh\Bicubic.fxh" />
+    <None Include="packs\mp.fxh\bitwise.fxh" />
+    <None Include="packs\mp.fxh\ByteAddressBufferUtils.fxh" />
+    <None Include="packs\mp.fxh\ColorSpace.fxh" />
+    <None Include="packs\mp.fxh\CookTorrance.fxh" />
+    <None Include="packs\mp.fxh\copysign.fxh" />
+    <None Include="packs\mp.fxh\CSThreadDefines.fxh" />
+    <None Include="packs\mp.fxh\CubeMarchConsts.fxh" />
+    <None Include="packs\mp.fxh\depthreconstruct.fxh" />
+    <None Include="packs\mp.fxh\DFGenPrimitives.fxh" />
+    <None Include="packs\mp.fxh\DFOperands.fxh" />
+    <None Include="packs\mp.fxh\DFPrimitiveInterface.fxh" />
+    <None Include="packs\mp.fxh\DFPrimitives.fxh" />
+    <None Include="packs\mp.fxh\DFPrimitiveSelector.fxh" />
+    <None Include="packs\mp.fxh\DFUtils.fxh" />
+    <None Include="packs\mp.fxh\DiscSample.fxh" />
+    <None Include="packs\mp.fxh\FakeCubeUtils.fxh" />
+    <None Include="packs\mp.fxh\GetMergedID.fxh" />
+    <None Include="packs\mp.fxh\InstanceParams.fxh" />
+    <None Include="packs\mp.fxh\LICENSE" />
+    <None Include="packs\mp.fxh\LightStructs.fxh" />
+    <None Include="packs\mp.fxh\LightUtils.fxh" />
+    <None Include="packs\mp.fxh\map.fxh" />
+    <None Include="packs\mp.fxh\MaterialFeatures.fxh" />
+    <None Include="packs\mp.fxh\Materials.fxh" />
+    <None Include="packs\mp.fxh\mcpsRead.fxh" />
+    <None Include="packs\mp.fxh\mcpsWorld.fxh" />
+    <None Include="packs\mp.fxh\mcpsWrite.fxh" />
+    <None Include="packs\mp.fxh\minmax.fxh" />
+    <None Include="packs\mp.fxh\mod.fxh" />
+    <None Include="packs\mp.fxh\MRE.fxh" />
+    <None Include="packs\mp.fxh\MREForward.fxh" />
+    <None Include="packs\mp.fxh\MREForwardMergedPS.fxh" />
+    <None Include="packs\mp.fxh\MREForwardMergedPSProp.fxh" />
+    <None Include="packs\mp.fxh\MREForwardPS.fxh" />
+    <None Include="packs\mp.fxh\MREForwardPSProp.fxh" />
+    <None Include="packs\mp.fxh\MREForwardTessellator.fxh" />
+    <None Include="packs\mp.fxh\MREForwardTessellatorProp.fxh" />
+    <None Include="packs\mp.fxh\MREInputElements.fxh" />
+    <None Include="packs\mp.fxh\PanoTools.fxh" />
+    <None Include="packs\mp.fxh\plasmanoise.fxh" />
+    <None Include="packs\mp.fxh\PoissonDisc.fxh" />
+    <None Include="packs\mp.fxh\pows.fxh" />
+    <None Include="packs\mp.fxh\quaternion.fxh" />
+    <None Include="packs\mp.fxh\RWByteAddressBufferUtils.fxh" />
+    <None Include="packs\mp.fxh\safedivide.fxh" />
+    <None Include="packs\mp.fxh\safesign.fxh" />
+    <None Include="packs\mp.fxh\square.fxh" />
+    <None Include="packs\mp.fxh\VertexFeatureFlags.fxh" />
+    <None Include="packs\mp.fxh\VRotate.fxh" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
