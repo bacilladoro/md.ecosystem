@@ -13,9 +13,6 @@
 [submodule "packs/VObjects"]
 	path = packs/VObjects
 	url = https://github.com/microdee/VObjects.git
-[submodule "packs/Emeshe"]
-	path = packs/Emeshe
-	url = https://github.com/microdee/Emeshe.git
 [submodule "packs/leappack"]
 	path = packs/leappack
 	url = https://github.com/microdee/leappack.git
