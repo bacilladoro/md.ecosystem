@@ -193,5 +193,7 @@
     <None Include="packs\mp.dx\nodes\texture11\ReShade\Technicolor.tfx" />
     <None Include="packs\mp.dx\nodes\texture11\ReShade\Technicolor2.tfx" />
     <None Include="packs\mp.dx\nodes\texture11\ReShade\Vibrance.tfx" />
+    <None Include="packs\mp.fxh\brdf.fxh" />
+    <None Include="packs\mp.fxh\BRDFParamTemplate.fxh" />
   </ItemGroup>
 </Project>

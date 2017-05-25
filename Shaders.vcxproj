@@ -117,6 +117,7 @@
     <FxCompile Include="packs\mp.dx\nodes\dx11\ConstantAdvanced.fx" />
     <FxCompile Include="packs\mp.dx\nodes\dx11\ConstantColor.fx" />
     <FxCompile Include="packs\mp.dx\nodes\dx11\CSTemplate.fx" />
+    <FxCompile Include="packs\mp.dx\nodes\dx11\DisneyForwardSimpleNaive.fx" />
     <FxCompile Include="packs\mp.dx\nodes\dx11\DrawGrid.fx" />
     <FxCompile Include="packs\mp.dx\nodes\dx11\GeomJoinThru.fx" />
     <FxCompile Include="packs\mp.dx\nodes\dx11\GrowthDX11.fx" />
@@ -243,6 +244,8 @@
     <None Include="packs\mp.fxh\barycentric.fxh" />
     <None Include="packs\mp.fxh\Bicubic.fxh" />
     <None Include="packs\mp.fxh\bitwise.fxh" />
+    <None Include="packs\mp.fxh\brdf.fxh" />
+    <None Include="packs\mp.fxh\BRDFParamTemplate.fxh" />
     <None Include="packs\mp.fxh\ByteAddressBufferUtils.fxh" />
     <None Include="packs\mp.fxh\ColorSpace.fxh" />
     <None Include="packs\mp.fxh\CookTorrance.fxh" />
