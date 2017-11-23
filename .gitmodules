@@ -37,3 +37,6 @@
 [submodule "packs/nexusinv"]
 	path = packs/nexusinv
 	url = https://github.com/microdee/nexusinv.git
+[submodule "packs/veggie"]
+	path = packs/veggie
+	url = https://github.com/microdee/veggie.git
