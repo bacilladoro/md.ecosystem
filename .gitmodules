@@ -40,3 +40,6 @@
 [submodule "packs/veggie"]
 	path = packs/veggie
 	url = https://github.com/microdee/veggie.git
+[submodule "md.stdl"]
+	path = md.stdl
+	url = https://github.com/microdee/md.stdl.git
