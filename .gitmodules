@@ -43,3 +43,6 @@
 [submodule "md.stdl"]
 	path = md.stdl
 	url = https://github.com/microdee/md.stdl.git
+[submodule "VVVV.UtilsSA"]
+	path = VVVV.UtilsSA
+	url = https://github.com/microdee/VVVV.UtilsSA.git
