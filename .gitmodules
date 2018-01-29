@@ -10,9 +10,6 @@
 [submodule "packs/mp.voocam"]
 	path = packs/mp.voocam
 	url = https://github.com/microdee/mp.voocam.git
-[submodule "packs/VObjects"]
-	path = packs/VObjects
-	url = https://github.com/microdee/VObjects.git
 [submodule "packs/leappack"]
 	path = packs/leappack
 	url = https://github.com/microdee/leappack.git
