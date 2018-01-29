@@ -19,9 +19,6 @@
 [submodule "packs/mp.vaudio"]
 	path = packs/mp.vaudio
 	url = https://github.com/microdee/mp.vaudio.git
-[submodule "packs/mp.mcps"]
-	path = packs/mp.mcps
-	url = https://github.com/microdee/mp.mcps.git
 [submodule "packs/IPCSessions"]
 	path = packs/IPCSessions
 	url = https://github.com/microdee/IPCSessions.git
