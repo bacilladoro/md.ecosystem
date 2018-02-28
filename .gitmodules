@@ -42,4 +42,4 @@
 	url = https://github.com/microdee/VVVV.UtilsSA.git
 [submodule "mp.pddn"]
 	path = mp.pddn
-	url = https://github.com/microdee/mp.pddn.git
+	url = https://github.com/microdee/md.stdl.git
