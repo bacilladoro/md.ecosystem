@@ -43,3 +43,6 @@
 [submodule "mp.pddn"]
 	path = mp.pddn
 	url = https://github.com/microdee/md.stdl.git
+[submodule "Notui"]
+	path = Notui
+	url = https://github.com/microdee/Notui.git
