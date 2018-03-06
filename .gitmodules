@@ -46,3 +46,6 @@
 [submodule "Notui"]
 	path = Notui
 	url = https://github.com/microdee/Notui.git
+[submodule "packs/Notuiv"]
+	path = packs/Notuiv
+	url = https://github.com/microdee/Notuiv.git
